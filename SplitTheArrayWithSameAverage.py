@@ -1,6 +1,5 @@
 # LeetCode 805
 
-
 class Solution:
     def splitArraySameAverage(self, A):
         """
