@@ -5,6 +5,7 @@ Unittest the sorting algorithms
 import unittest
 from Sorting.quickSort import *
 from Sorting.mergeSort import *
+from Sorting.heapSort import *
 
 
 class UnittestSorting(unittest.TestCase):
@@ -33,3 +34,11 @@ class UnittestSorting(unittest.TestCase):
                 print(merge_sort(nums, 0, len(nums), [0]*len(nums)))
                 print('Wrong result for test case', nums)
                 print('Expected', sorted(nums))
+
+    def test_heapSort(self):
+        for nums in self.testcases:
+            print('Sorting', nums, '...')
+            if heap_sort(nums) != sorted(nums):
+                print('Wrong result for test case', nums)
+                print('Expected', sorted(nums))
+                print('After heap sort', heap_sort(nums))
