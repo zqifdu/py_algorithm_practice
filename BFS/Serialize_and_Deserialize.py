@@ -1,7 +1,6 @@
 # https://www.lintcode.com/problem/serialize-and-deserialize-binary-tree/description?_from=ladder&&fromId=1
 #Definition of TreeNode:
 
-
 class TreeNode:
     def __init__(self, val):
         self.val = val
