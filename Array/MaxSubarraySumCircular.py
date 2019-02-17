@@ -51,6 +51,7 @@ class Solution:
             queue.append((i, table[i]))
         return ans
 
+
 class Solution2:
     def maxSubarraySumCircular(self, A):
         """
@@ -74,6 +75,7 @@ class Solution2:
             cursum = max(n, cursum + n)
             maxsum = max(cursum, maxsum)
         return maxsum
+
 
 def main():
     A = [1, -2, 3]

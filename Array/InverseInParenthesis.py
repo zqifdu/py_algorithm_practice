@@ -1,60 +1,63 @@
-# You have a string s that consists of English letters, punctuation marks, whitespace characters, and brackets.
-# It is guaranteed that the parentheses in s form a regular bracket sequence.
-#
-# Your task is to reverse the strings contained in each pair of matching parentheses, starting from the innermost pair.
-# The results string should not contain any parentheses.
-# ------------
-# Example
-#
-# For string s = “a(bc)de”, the output should be
-# reverseParentheses(s) = “acbde”.
-#
-# Input/Output
-#
-# [execution time limit] 4 seconds (py)
-#
-# [input] string s
-#
-# A string consisting of English letters, punctuation marks, whitespace characters and brackets. It is guaranteed that
-# parentheses form a regular bracket sequence.
-#
-# Constraints:
-# 5 ≤ s.length ≤ 55.
-#
-# [output] string
+"""
+You have a string s that consists of English letters, punctuation marks, whitespace characters,
+and brackets.
+It is guaranteed that the parentheses in s form a regular bracket sequence.
 
-#
-# def inverse_in_parenthesis(string):
-#     if not string:
-#         return string
-#     left, right = 0, len(string) - 1
-#     while left < right and (string[left] != '(' or string[right] != ')'):
-#         if string[left] != '(':
-#             left += 1
-#         if string[right] != ')':
-#             right -= 1
-#
-#     if left == right:
-#         return string
-#     else:
-#         string = string[:left] + reverse_inside(string[left + 1:right]) + string[right+1:]
-#         return string
-#
-#
-# def reverse_inside(substr):
-#     if len(substr) <= 1:
-#         return substr
-#     left, right = 0, len(substr) - 1
-#     while left < right and (substr[left] != '(' or substr[right] != ')'):
-#         if substr[left] != '(':
-#             left += 1
-#         if substr[right] != ')':
-#             right -= 1
-#     if left == right:
-#         return substr[::-1]
-#     else:
-#         reversed_subsub = reverse_inside(substr[left + 1:right])
-#         return (substr[:left] + reversed_subsub + substr[right+1:])[::-1]
+Your task is to reverse the strings contained in each pair of matching parentheses, starting from
+the innermost pair. The results string should not contain any parentheses.
+------------
+Example
+
+For string s = “a(bc)de”, the output should be
+reverseParentheses(s) = “acbde”.
+
+Input/Output
+
+[execution time limit] 4 seconds (py)
+
+[input] string s
+
+A string consisting of English letters, punctuation marks, whitespace characters and brackets.
+It is guaranteed that parentheses form a regular bracket sequence.
+
+Constraints:
+5 ≤ s.length ≤ 55.
+
+[output] string
+"""
+
+
+def inverse_in_parenthesis(string):
+    if not string:
+        return string
+    left, right = 0, len(string) - 1
+    while left < right and (string[left] != '(' or string[right] != ')'):
+        if string[left] != '(':
+            left += 1
+        if string[right] != ')':
+            right -= 1
+
+    if left == right:
+        return string
+    else:
+        string = string[:left] + reverse_inside(string[left + 1:right]) + string[right+1:]
+        return string
+
+
+def reverse_inside(substr):
+    if len(substr) <= 1:
+        return substr
+    left, right = 0, len(substr) - 1
+    while left < right and (substr[left] != '(' or substr[right] != ')'):
+        if substr[left] != '(':
+            left += 1
+        if substr[right] != ')':
+            right -= 1
+    if left == right:
+        return substr[::-1]
+    else:
+        reversed_subsub = reverse_inside(substr[left + 1:right])
+        return (substr[:left] + reversed_subsub + substr[right+1:])[::-1]
 
 
 def inverse_in_parenthesis(string):
